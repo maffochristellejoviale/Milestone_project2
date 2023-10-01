@@ -1,0 +1,36 @@
+--- 
+title: "Milestone 1"
+authors: "Alex Ha, Maffo Christelle Joviale, BILOUNGA NDONGO Chanceline"
+output: html_document
+---
+
+#Project Selection
+
+Scenario 3: Environment and asthma in California
+
+#What is your team's preferred communication method - email, text, bcourse messaging?
+
+Text (WhatsApp)
+
+#When will your team be holding meetings? How frequently will you meet? Are there times or days that work well for everyone?
+
+We will meet on weekends when everyone is free. Since we live in different time zones, we will meet as needed and figure out a time that works for everyone.
+
+#Discuss future non-academic commitments that might affect members' availability.
+
+Alex: Work (8-12 hrs/wk, all 7 days)
+
+#Discuss meeting tempo: "checking in" at the beginning of meetings versus "just sticking to business".
+
+Just sticking to business
+
+#Roles
+
+##How is your team going to keep track of progress? Who will be taking minutes, creating agendas, and contacting the course facilitators with questions?
+
+Frequent check-ins via text. Record what action items/goals were achieved. Point person: Alex
+
+#We encourage you to discuss potential dates and times to meet with a course facilitator during Weeks 3-5. Decide on the best date and time for all.
+we will meet with the cacilitator on weekend(saturday) 6-7PM GMT
+
+

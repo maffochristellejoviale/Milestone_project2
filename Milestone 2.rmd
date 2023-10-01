@@ -1,0 +1,5 @@
+--- 
+title: "Milestone 1"
+authors: "Alex Ha, Maffo Christelle Joviale, BILOUNGA NDONGO Chanceline"
+output: html_document
+---
