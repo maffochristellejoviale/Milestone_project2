@@ -1,5 +1,79 @@
 --- 
-title: "Milestone 1"
+title: "Milestone 2"
 authors: "Alex Ha, Maffo Christelle Joviale, BILOUNGA NDONGO Chanceline"
 output: html_document
 ---
+#Description of dataset
+#What is the data source? (1-2 sentences on where the data is coming from, dates included, etc.)
++ calenviroscreen_datadictionary.xlsx dataset is from the California Environmental Screening Program, which assesses envirobmental factors in California
++the calenviroscreen_measures_2021.csv is from the California Environmental Screening Program; is developd by the the California Office of Environmental Health Hazard Assessment (OEHHA), and it measures verious environmental factors to assess the potential cummulative impact on commmunities in California.
++ The chhs_asthma_ed.csv dataset is from the California Health and Human Service Agency, responsible for public Health in California, the dataset contained information on Asthma-related emmergency department admission in the state in 2015.
+
+#How does the dataset relate to the group problem statement and question?
++the dataset evaluate the environmental factors acounting in the developement of asthma and Asthma-related emmergency department admission whic is the airm of the Group Project.
+
+#Import statements for all datasets
+NOTE: Please use datasets available in the PHW251 Project Data github repo Links to an external site. (this is important to make sure everyone is using the same datasets)
+
+#Use appropriate import function and package based on the type of file
++data_dictionary<- read::xlsx("scenario_3/calenviroscreen_datadictionary.xlsx")
++view(data_dictionary)
++data_chhs<-read.csv("scenario_3/chhs_asthma_ed.csv")
++view(data_chhs)
+
+#Utilize function arguments to control relevant components (i.e. change column types, column names, missing values, etc.)
++library(dplyr)
++data_chhs<-data_chhs%>% mutate("STRATA" = as.numeric("STRATA"), "STRATA NAME" = as.numeric("STRATA NAME"),"AGE GROUP" = as.numeric("AGE GROUP"))
+data_chhs<-data_chhs%>% mutate(across(c(col3, col4, col5),as.numeric))
+
+#Document the import process
++
+
+#Clean up column names (recommend using snake case, which is lower case text with underscores between words)
++data_chhs<-rename("country" = "COUNTY", "year" = "YEAR","strata" = "STRATA","Strata_name" = "STRATA NAME","age_group" = "AGE GROUP", "number_ed_visit" = "NUMBER OF ED VISITS", "age_ajusted_ed_visit_rate" = "AGE-ADJUSTED ED VISIT RATE")
++head(data_chhs)
+
++data_chhs<-data_chhs%>% mutate(c("number_ed_visit","age_ajusted_ed_visit_rate") = na_if(C(number_ed_visit,age_ajusted_ed_visit_rate),"missing_value"))
+
+#Identify data types for 5+ data elements/columns/variables
+
++ class(c(data_chhs$country,data_chhs$age_group, data_chhs$number_ed_visit, data_chhs$age_ajusted_ed_visit_rate, data_chhs$strata))
+
+#Identify 5+ data elements required for your specified scenario. If <5 elements are required to complete the analysis, please choose additional variables of interest in the data set to explore in this milestone.
+
++1.country; 2.age_group; 3.number_ed_visit; 4.age_ajusted_ed_visit_rate; 5.strata
++
+#Utilize functions or resources in RStudio to determine the types of each data element (i.e. character, numeric, factor)
++class(data_chhs$country)
++class(data_chhs$age_group)
++class(data_chhs$number_ed_visit) 
++class(data_chhs$age_ajusted_ed_visit_rate)
++class(data_chhs$strata)
+
+
++Identify the desired type/format for each variable—will you need to convert any columns to numeric or another type? 
+#desired type:
++country = character
++age_group = numeric
++number_ed_visit = numeric
++age_ajusted_ed_visit_rate = numeric
++strata = numeric
+#convert
++yes we will need to convert the Strata and age_group to Numeric.
+
+
++Provide a basic description of the 5+ data elements
+Numeric: mean, median, range
++summary(c("age_group", "number_ed_visit", "age_ajusted_ed_visit_rate", "strata"))
+
+Character:  unique values/categories
+summary(country)
+Or any other descriptives that will be useful to the analysis
+
+#Describe cleaning that each data source may need
+
+NOTE: There is no requirement for any data cleaning in this milestone, but there may be cleaning you can do when you import your data! Please list out the anticipated data cleaning needed. 
+Examples:
+Data elements that need to be converted to a different type
+Data elements that need cleaning or re-categorization
+Data elements that may be used for future joins (i.e. state, county)
